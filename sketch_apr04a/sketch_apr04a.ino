@@ -1,31 +1,31 @@
 #include <Servo.h>   //servo library
-Servo servo; 
-Servo servo1;    
+Servo servo;
+//Servo servo1;    
 const int trigPin = 7;    
-const int echoPin = 8;   
+const int echoPin = 8;  
 const int servoPin = 6;
-const int servoPin1 = 11;
+//const int servoPin1 = 11;
 const int trigPin1 =9;
 const int echoPin1 = 10;
 //int led= 10;
-long duration,duration1,dist1,dist, average;   
+long duration,duration1,dist1,dist, average;  
 //long aver[3];   //array for average
 
 
-void setup() {       
+void setup() {      
     Serial.begin(9600);
-    servo.attach(servoPin); 
-    servo1.attach(servoPin1); 
+    servo.attach(servoPin);
+    //servo1.attach(servoPin1);
     pinMode(trigPin, OUTPUT);  
-    pinMode(echoPin, INPUT); 
+    pinMode(echoPin, INPUT);
     pinMode(trigPin1, OUTPUT);  
-    pinMode(echoPin1, INPUT); 
-} 
+    pinMode(echoPin1, INPUT);
+}
 
 
-void loop() { 
+void loop() {
 //  for (int i=0;i<=2;i++) {   //average distance
-//    measure();               
+//    measure();              
 //   aver[i]=dist;            
 //    delay(1000);              //delay between measurements
 //  }
@@ -36,12 +36,12 @@ void loop() {
 // servo.attach(servoPin);
 //  delay(1);
 // servo.write(0);  
-// delay(3000);       
+// delay(3000);      
 // servo.write(180);    
 // delay(1000);
 // servo.detach();      
 //}
-//Serial.print(dist); 
+//Serial.print(dist);
 measure();
 measure1();
 }
@@ -55,7 +55,7 @@ digitalWrite(trigPin, HIGH);
 delayMicroseconds(15);
 digitalWrite(trigPin, LOW);
 duration = pulseIn(echoPin, HIGH);
-dist = duration/74/2; 
+dist = duration/74/2;
 Serial.print("Ultrasonic 1 : ");
 Serial.println(dist);//obtain distance
 if(dist<10)
@@ -76,15 +76,8 @@ digitalWrite(trigPin1, HIGH);
 delayMicroseconds(15);
 digitalWrite(trigPin1, LOW);
 duration1 = pulseIn(echoPin1, HIGH);
-dist1 = duration1/74/2; 
+dist1 = duration1/74/2;
 Serial.print("Ultrasonic 2 : ");
 Serial.println(dist1);
-if(dist1<15)
-{
-  servo.write(0);
-}
-else
-{
-  servo.write(90);
-}
+delay(1000);
 }
