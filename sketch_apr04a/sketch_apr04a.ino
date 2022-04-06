@@ -43,6 +43,7 @@ void loop() {
 //}
 //Serial.print(dist); 
 measure();
+measure1();
 }
 
 
@@ -55,6 +56,7 @@ delayMicroseconds(15);
 digitalWrite(trigPin, LOW);
 duration = pulseIn(echoPin, HIGH);
 dist = duration/74/2; 
+Serial.print("Ultrasonic 1 : ");
 Serial.println(dist);//obtain distance
 if(dist<10)
 {
@@ -75,7 +77,8 @@ delayMicroseconds(15);
 digitalWrite(trigPin1, LOW);
 duration1 = pulseIn(echoPin1, HIGH);
 dist1 = duration1/74/2; 
-Serial.println(dist1);//obtain distance
+Serial.print("Ultrasonic 2 : ");
+Serial.println(dist1);
 if(dist1<15)
 {
   servo.write(0);
